@@ -18,37 +18,60 @@ namespace QLSinhVienHunre
         LopHoc lop = new LopHoc();
         MonHoc mon = new MonHoc();
         SinhVien sinhVien = new SinhVien();
-        Login login = new Login();
-        
+        private Form currentFormChild;
+
         public Menu()
         {
             InitializeComponent();
-            login.ShowDialog();
         }
 
-        private void mon_hoc_button_Click(object sender, EventArgs e)
+        private void OpenChildForm(Form childForm)
         {
-            mon.Show();
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
+            currentFormChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel3.Controls.Add(childForm);
+            childForm.Show();
         }
 
-        private void sinh_vien_button_Click(object sender, EventArgs e)
+        private void buttonSinhVien_Click(object sender, EventArgs e)
         {
-            sinhVien.Show();
+           OpenChildForm(new SinhVien());
         }
 
-        private void lop_button_Click(object sender, EventArgs e)
+        private void buttonMonHoc_Click(object sender, EventArgs e)
         {
-            lop.Show();
+            OpenChildForm(new MonHoc());
         }
 
-        private void diem_button_Click(object sender, EventArgs e)
+        private void buttonKhoa_Click(object sender, EventArgs e)
         {
-            diem.Show();
+            OpenChildForm(new Khoa());
         }
 
-        private void khoa_button_Click(object sender, EventArgs e)
+        private void buttonLop_Click(object sender, EventArgs e)
         {
-            khoa.Show();
+            OpenChildForm(new LopHoc());
+        }
+
+        private void buttonDiem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Diem());
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đóng ứng dụng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Hủy sự kiện đóng form
+            }
         }
     }
 }

@@ -40,12 +40,15 @@ namespace QLSinhVienHunre
                     if (count > 0)
                     {
                         MessageBox.Show("Đăng nhập thành công");
-                        this.Close();
+                        // Nếu thông tin đăng nhập chính xác, đóng form đăng nhập và mở form menu chính
+                        this.Hide();
+                        Menu menu = new Menu();
+                        menu.ShowDialog();
+                        this.Close(); // Sau khi form menu đóng, đóng luôn form đăng nhập
                     }
                     else
                     {
                         MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
-                        username_textbox.Clear();
                         password_textbox.Clear();
                     }
                 }
