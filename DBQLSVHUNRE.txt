@@ -1,6 +1,19 @@
 -- DROP SCHEMA dbo;
 
 CREATE SCHEMA dbo;
+-- qlsinhvienhunre.dbo.ChuVu definition
+
+-- Drop table
+
+-- DROP TABLE qlsinhvienhunre.dbo.ChuVu;
+
+CREATE TABLE qlsinhvienhunre.dbo.ChuVu (
+	tenChucVu nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	chucVu varchar(5) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	CONSTRAINT ChuVu_PK PRIMARY KEY (chucVu)
+);
+
+
 -- qlsinhvienhunre.dbo.GioiTinh definition
 
 -- Drop table
@@ -8,9 +21,9 @@ CREATE SCHEMA dbo;
 -- DROP TABLE qlsinhvienhunre.dbo.GioiTinh;
 
 CREATE TABLE qlsinhvienhunre.dbo.GioiTinh (
-	gioiTinh int NOT NULL,
+	gioiTinh varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	tenGioiTinh nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	CONSTRAINT PK_GioiTinh PRIMARY KEY (gioiTinh)
+	CONSTRAINT GioiTinh_PK PRIMARY KEY (gioiTinh)
 );
 
 
@@ -21,9 +34,9 @@ CREATE TABLE qlsinhvienhunre.dbo.GioiTinh (
 -- DROP TABLE qlsinhvienhunre.dbo.HinhThuc;
 
 CREATE TABLE qlsinhvienhunre.dbo.HinhThuc (
-	maHinhThucDanhGia int NOT NULL,
+	hinhThucDanhGia varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	tenHinhThucDanhGia nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	CONSTRAINT MucTieu_PK PRIMARY KEY (maHinhThucDanhGia)
+	CONSTRAINT HinhThuc_PK PRIMARY KEY (hinhThucDanhGia)
 );
 
 
@@ -34,9 +47,9 @@ CREATE TABLE qlsinhvienhunre.dbo.HinhThuc (
 -- DROP TABLE qlsinhvienhunre.dbo.MucTieu;
 
 CREATE TABLE qlsinhvienhunre.dbo.MucTieu (
-	maMucTieuDauRa int NOT NULL,
-	tenMucTieuDauRa nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	CONSTRAINT NewTable_PK PRIMARY KEY (maMucTieuDauRa)
+	maKetQua varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	tenKetQua nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT MucTieu_PK PRIMARY KEY (maKetQua)
 );
 
 
@@ -55,29 +68,16 @@ CREATE TABLE qlsinhvienhunre.dbo.NganhHoc (
 );
 
 
--- qlsinhvienhunre.dbo.TheLoai definition
+-- qlsinhvienhunre.dbo.QuyDinh definition
 
 -- Drop table
 
--- DROP TABLE qlsinhvienhunre.dbo.TheLoai;
+-- DROP TABLE qlsinhvienhunre.dbo.QuyDinh;
 
-CREATE TABLE qlsinhvienhunre.dbo.TheLoai (
-	theLoai int IDENTITY(0,1) NOT NULL,
-	tenTheLoai nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	CONSTRAINT TheLoai_PK PRIMARY KEY (theLoai)
-);
-
-
--- qlsinhvienhunre.dbo.TrangThai definition
-
--- Drop table
-
--- DROP TABLE qlsinhvienhunre.dbo.TrangThai;
-
-CREATE TABLE qlsinhvienhunre.dbo.TrangThai (
-	maTrangThai int NOT NULL,
-	tenTrangThai nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	CONSTRAINT TrangThai_PK PRIMARY KEY (maTrangThai)
+CREATE TABLE qlsinhvienhunre.dbo.QuyDinh (
+	quyDinh varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	tenQuyDinh nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT QuyDinh_PK PRIMARY KEY (quyDinh)
 );
 
 
@@ -91,17 +91,13 @@ CREATE TABLE qlsinhvienhunre.dbo.MonHoc (
 	maMonHoc varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	tenMonHoc nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	soTinChi int NULL,
-	maNganhHoc varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	namBatDau int NULL,
-	maTrangThai int NULL,
+	quyDinh varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	moTaMonHoc nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	maMucTieuDauRa int NULL,
-	maHinhThucDanhGia int NULL,
+	hinhThucDanhGia varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	CONSTRAINT MonHoc_PK PRIMARY KEY (maMonHoc),
-	CONSTRAINT MonHoc_HinhThuc_FK FOREIGN KEY (maHinhThucDanhGia) REFERENCES qlsinhvienhunre.dbo.HinhThuc(maHinhThucDanhGia),
-	CONSTRAINT MonHoc_MucTieu_FK FOREIGN KEY (maMucTieuDauRa) REFERENCES qlsinhvienhunre.dbo.MucTieu(maMucTieuDauRa),
-	CONSTRAINT MonHoc_NganhHoc_FK FOREIGN KEY (maNganhHoc) REFERENCES qlsinhvienhunre.dbo.NganhHoc(maNganhHoc),
-	CONSTRAINT MonHoc_TrangThai_FK FOREIGN KEY (maTrangThai) REFERENCES qlsinhvienhunre.dbo.TrangThai(maTrangThai)
+	CONSTRAINT MonHoc_HinhThuc_FK FOREIGN KEY (hinhThucDanhGia) REFERENCES qlsinhvienhunre.dbo.HinhThuc(hinhThucDanhGia),
+	CONSTRAINT MonHoc_QuyDinh_FK FOREIGN KEY (quyDinh) REFERENCES qlsinhvienhunre.dbo.QuyDinh(quyDinh)
 );
 
 
@@ -116,9 +112,24 @@ CREATE TABLE qlsinhvienhunre.dbo.NhanVien (
 	hoNhanVien nvarchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	tenNhanVien nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	ngaySinh date NULL,
-	gioiTinh int NULL,
+	gioiTinh varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	CONSTRAINT PK_NhanVien PRIMARY KEY (maNhanVien),
-	CONSTRAINT FK_NhanVien_GioiTinh FOREIGN KEY (gioiTinh) REFERENCES qlsinhvienhunre.dbo.GioiTinh(gioiTinh)
+	CONSTRAINT NhanVien_GioiTinh_FK FOREIGN KEY (gioiTinh) REFERENCES qlsinhvienhunre.dbo.GioiTinh(gioiTinh)
+);
+
+
+-- qlsinhvienhunre.dbo.PhanChiaMon definition
+
+-- Drop table
+
+-- DROP TABLE qlsinhvienhunre.dbo.PhanChiaMon;
+
+CREATE TABLE qlsinhvienhunre.dbo.PhanChiaMon (
+	maNganhHoc varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	maMonHoc varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	CONSTRAINT PhanChiaMon_PK PRIMARY KEY (maNganhHoc,maMonHoc),
+	CONSTRAINT PhanChiaMon_MonHoc_FK FOREIGN KEY (maMonHoc) REFERENCES qlsinhvienhunre.dbo.MonHoc(maMonHoc),
+	CONSTRAINT PhanChiaMon_NganhHoc_FK FOREIGN KEY (maNganhHoc) REFERENCES qlsinhvienhunre.dbo.NganhHoc(maNganhHoc)
 );
 
 
@@ -133,31 +144,12 @@ CREATE TABLE qlsinhvienhunre.dbo.SinhVien (
 	hoSinhVien nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	tenSinhVien nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	ngaySinh date NULL,
-	gioiTinh int NULL,
+	gioiTinh varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	namNhapHoc int NULL,
 	maNganhHoc varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	CONSTRAINT SinhVien_PK PRIMARY KEY (maSinhVien),
 	CONSTRAINT SinhVien_GioiTinh_FK FOREIGN KEY (gioiTinh) REFERENCES qlsinhvienhunre.dbo.GioiTinh(gioiTinh),
 	CONSTRAINT SinhVien_NganhHoc_FK FOREIGN KEY (maNganhHoc) REFERENCES qlsinhvienhunre.dbo.NganhHoc(maNganhHoc)
-);
-
-
--- qlsinhvienhunre.dbo.NguoiDung definition
-
--- Drop table
-
--- DROP TABLE qlsinhvienhunre.dbo.NguoiDung;
-
-CREATE TABLE qlsinhvienhunre.dbo.NguoiDung (
-	tenNguoiDung varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	matKhau varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	theLoai int NULL,
-	maSinhVien varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	maNhanVien varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	CONSTRAINT NguoiDung_PK PRIMARY KEY (tenNguoiDung),
-	CONSTRAINT NguoiDung_NhanVien_FK FOREIGN KEY (maNhanVien) REFERENCES qlsinhvienhunre.dbo.NhanVien(maNhanVien),
-	CONSTRAINT NguoiDung_SinhVien_FK FOREIGN KEY (maSinhVien) REFERENCES qlsinhvienhunre.dbo.SinhVien(maSinhVien),
-	CONSTRAINT NguoiDung_TheLoai_FK FOREIGN KEY (theLoai) REFERENCES qlsinhvienhunre.dbo.TheLoai(theLoai)
 );
 
 
@@ -181,6 +173,24 @@ CREATE TABLE qlsinhvienhunre.dbo.LopHocPhan (
 );
 
 
+-- qlsinhvienhunre.dbo.NguoiDung definition
+
+-- Drop table
+
+-- DROP TABLE qlsinhvienhunre.dbo.NguoiDung;
+
+CREATE TABLE qlsinhvienhunre.dbo.NguoiDung (
+	chuVu varchar(5) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	maSinhVien varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT '0' NOT NULL,
+	maNhanVien varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT '0' NOT NULL,
+	matKhau varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT PK_NguoiDung PRIMARY KEY (maSinhVien,maNhanVien),
+	CONSTRAINT NguoiDung_ChuVu_FK FOREIGN KEY (chuVu) REFERENCES qlsinhvienhunre.dbo.ChuVu(chucVu),
+	CONSTRAINT NguoiDung_NhanVien_FK FOREIGN KEY (maNhanVien) REFERENCES qlsinhvienhunre.dbo.NhanVien(maNhanVien),
+	CONSTRAINT NguoiDung_SinhVien_FK FOREIGN KEY (maSinhVien) REFERENCES qlsinhvienhunre.dbo.SinhVien(maSinhVien)
+);
+
+
 -- qlsinhvienhunre.dbo.ThamGiaLopHoc definition
 
 -- Drop table
@@ -189,10 +199,12 @@ CREATE TABLE qlsinhvienhunre.dbo.LopHocPhan (
 
 CREATE TABLE qlsinhvienhunre.dbo.ThamGiaLopHoc (
 	maLopHocPhan varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	maSinhVien varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	maSinhVien varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	diemSo float NULL,
 	diemChu char(8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	CONSTRAINT ThamGiaLopHoc_PK PRIMARY KEY (maLopHocPhan),
+	maKetQua varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT ThamGiaLopHoc_PK PRIMARY KEY (maLopHocPhan,maSinhVien),
 	CONSTRAINT ThamGiaLopHoc_LopHocPhan_FK FOREIGN KEY (maLopHocPhan) REFERENCES qlsinhvienhunre.dbo.LopHocPhan(maLopHocPhan),
+	CONSTRAINT ThamGiaLopHoc_MucTieu_FK FOREIGN KEY (maKetQua) REFERENCES qlsinhvienhunre.dbo.MucTieu(maKetQua),
 	CONSTRAINT ThamGiaLopHoc_SinhVien_FK FOREIGN KEY (maSinhVien) REFERENCES qlsinhvienhunre.dbo.SinhVien(maSinhVien)
 );
