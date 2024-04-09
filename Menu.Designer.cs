@@ -53,7 +53,7 @@
             this.label1.Location = new System.Drawing.Point(203, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 39);
+            this.label1.Size = new System.Drawing.Size(618, 79);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản Lý Sinh Viên";
             // 

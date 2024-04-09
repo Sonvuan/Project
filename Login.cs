@@ -17,7 +17,7 @@ namespace QLSinhVienHunre
         {
             InitializeComponent();
         }
-        string connectionString = "Data Source=localhost;Initial Catalog=quanly_sinhvien;User ID=sa;Password=Password789";
+        string connectionString = "Data Source=localhost;Initial Catalog=qlsinhvienhunre;User ID=sa;Password=Password789";
         private void dangnhap_button_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -25,7 +25,7 @@ namespace QLSinhVienHunre
                 SqlCommand command = connection.CreateCommand();
 
                 // Câu lệnh SQL tìm kiếm
-                string sql = "SELECT count(*) FROM accuser WHERE username = @user AND userpassword = @pass";
+                string sql = "SELECT count(*) FROM NguoiDung WHERE (maSinhVien = @user OR maNhanVien = @user) AND matKhau = @pass";
 
                 try
                 {

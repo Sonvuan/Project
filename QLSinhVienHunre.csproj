@@ -52,6 +52,12 @@
     <Compile Include="Diem.Designer.cs">
       <DependentUpon>Diem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,14 @@
     </Compile>
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="qlsinhvienhunreDataSet.cs">
+      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="qlsinhvienhunreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SinhVien.cs">
       <SubType>Form</SubType>
@@ -130,6 +144,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="qlsinhvienhunreDataSet.xsc">
+      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="qlsinhvienhunreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>qlsinhvienhunreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="qlsinhvienhunreDataSet.xss">
+      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
