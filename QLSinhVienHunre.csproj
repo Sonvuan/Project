@@ -78,6 +78,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="qlsinhvienhunreDataSet1.cs">
+      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="qlsinhvienhunreDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="qlsinhvienhunreDataSet2.cs">
+      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="qlsinhvienhunreDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +170,28 @@
     </None>
     <None Include="qlsinhvienhunreDataSet.xss">
       <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="qlsinhvienhunreDataSet1.xsc">
+      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="qlsinhvienhunreDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>qlsinhvienhunreDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="qlsinhvienhunreDataSet1.xss">
+      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="qlsinhvienhunreDataSet2.xsc">
+      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="qlsinhvienhunreDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>qlsinhvienhunreDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="qlsinhvienhunreDataSet2.xss">
+      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

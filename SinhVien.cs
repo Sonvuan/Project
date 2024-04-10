@@ -44,21 +44,23 @@ namespace QLSinhVienHunre
 
         private void SinhVien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qlsinhvienhunreDataSet2.Lop' table. You can move, or remove it, as needed.
+            this.lopTableAdapter.Fill(this.qlsinhvienhunreDataSet2.Lop);
             // TODO: This line of code loads data into the 'qlsinhvienhunreDataSet.SinhVien' table. You can move, or remove it, as needed.
-/*            this.sinhVienTableAdapter.Fill(this.qlsinhvienhunreDataSet.SinhVien);*/
+            /*            this.sinhVienTableAdapter.Fill(this.qlsinhvienhunreDataSet.SinhVien);*/
             hienthi();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             cnn.Open();
-            string query = "INSERT INTO qlsinhvienhunre.dbo.SinhVien (maSinhVien, hoSinhVien, tenSinhVien, ngaySinh, gioiTinh, namNhapHoc, maNganhHoc) VALUES(N'@idSV', N'@hoSV', N'@tenSV', '@ngaySinh', N'@gioiTinh', @namNhapHoc, N'@idNganh');";
-            using(SqlCommand com = new SqlCommand(query, cnn))
+            string query = "INSERT INTO qlsinhvienhunre.dbo.SinhVien (maSinhVien, hoSinhVien, tenSinhVien, gioiTinh, namNhapHoc, maLop) VALUES(N'@idSV', N'@hoSV', N'@tenSV', N'@gioiTinh', @namNhapHoc, N'@idLop');";
+            using (SqlCommand com = new SqlCommand(query, cnn))
             {
                 com.Parameters.AddWithValue("@idSV", textBoxID.Text);
                 com.Parameters.AddWithValue("@hoSV", textBoxHo.Text);
                 com.Parameters.AddWithValue("@tenSV", textBoxTen.Text);
-                com.Parameters.AddWithValue("@ngaySinh", dateTimePickerNgaySinh.Text);
+                com.Parameters.AddWithValue("@ngaySinh", dateTimePickerNgaySinh.Value.Date.ToString());
                 RadioButton gtcheck = null;
                 foreach (RadioButton gt in panelGioiTinh.Controls)
                 {
@@ -68,9 +70,15 @@ namespace QLSinhVienHunre
                         break;
                     }
                 }
-                com.Parameters.AddWithValue("@gioiTinh", dateTimePickerNgaySinh.Text);
-
+                com.Parameters.AddWithValue("@gioiTinh",gtcheck.Text.ToString());
+                com.Parameters.AddWithValue("@namNhapHoc", textBoxNamNhapHoc.Text);
+                com.Parameters.AddWithValue("@idLop", comboBoxNganhHoc.SelectedValue.ToString());
+                com.ExecuteNonQuery();
             }
+            cnn.Close();
+            MessageBox.Show("Dữ liệu đã được thêm vào bảng sinh vien.");
+
+            hienthi();
         }
     }
 }
