@@ -33,8 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,100 +56,151 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diem.cs">
+    <Compile Include="ChiaMonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Diem.Designer.cs">
-      <DependentUpon>Diem.cs</DependentUpon>
+    <Compile Include="ChiaMonForm.Designer.cs">
+      <DependentUpon>ChiaMonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="GiangVien.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiangVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GiangVienForm.Designer.cs">
+      <DependentUpon>GiangVienForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="HinhThuc.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KetQuaHocPhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="KetQuaHocPhan.Designer.cs">
+      <DependentUpon>KetQuaHocPhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Lop.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LopForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="LopForm.Designer.cs">
+      <DependentUpon>LopForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="qlsinhvienhunreDataSet.cs">
-      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
+    <Compile Include="LopHocPhan.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
     </Compile>
-    <Compile Include="qlsinhvienhunreDataSet.Designer.cs">
+    <Compile Include="ModelQLSVH.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
+      <DependentUpon>ModelQLSVH.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="qlsinhvienhunreDataSet1.cs">
-      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="qlsinhvienhunreDataSet1.Designer.cs">
+    <Compile Include="ModelQLSVH.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
     </Compile>
-    <Compile Include="qlsinhvienhunreDataSet2.cs">
-      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="qlsinhvienhunreDataSet2.Designer.cs">
+    <Compile Include="ModelQLSVH.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SinhVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SinhVien.Designer.cs">
-      <DependentUpon>SinhVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LopHoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LopHoc.Designer.cs">
-      <DependentUpon>LopHoc.cs</DependentUpon>
+      <DependentUpon>ModelQLSVH.edmx</DependentUpon>
     </Compile>
     <Compile Include="MonHoc.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonHocForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MonHoc.Designer.cs">
-      <DependentUpon>MonHoc.cs</DependentUpon>
+    <Compile Include="MonHocForm.Designer.cs">
+      <DependentUpon>MonHocForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Khoa.cs">
+    <Compile Include="NganhHoc.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NganhHocForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Khoa.Designer.cs">
-      <DependentUpon>Khoa.cs</DependentUpon>
+    <Compile Include="NganhHocForm.Designer.cs">
+      <DependentUpon>NganhHocForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NguoiDung.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhanChiaMonHoc.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SinhVien.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SinhVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SinhVienForm.Designer.cs">
+      <DependentUpon>SinhVienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuADMIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuADMIN.Designer.cs">
+      <DependentUpon>MenuADMIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopHocPhanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopHocPhanForm.Designer.cs">
+      <DependentUpon>LopHocPhanForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Diem.resx">
-      <DependentUpon>Diem.cs</DependentUpon>
+    <Compile Include="TaiKhoanNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaiKhoanNguoiDung.Designer.cs">
+      <DependentUpon>TaiKhoanNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThamGiaHocPhanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThamGiaHocPhanForm.Designer.cs">
+      <DependentUpon>ThamGiaHocPhanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThamGiaLopHoc.cs">
+      <DependentUpon>ModelQLSVH.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChiaMonForm.resx">
+      <DependentUpon>ChiaMonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="GiangVienForm.resx">
+      <DependentUpon>GiangVienForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="LopForm.resx">
+      <DependentUpon>LopForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SinhVien.resx">
-      <DependentUpon>SinhVien.cs</DependentUpon>
+    <EmbeddedResource Include="MonHocForm.resx">
+      <DependentUpon>MonHocForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LopHoc.resx">
-      <DependentUpon>LopHoc.cs</DependentUpon>
+    <EmbeddedResource Include="NganhHocForm.resx">
+      <DependentUpon>NganhHocForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MonHoc.resx">
-      <DependentUpon>MonHoc.cs</DependentUpon>
+    <EmbeddedResource Include="SinhVienForm.resx">
+      <DependentUpon>SinhVienForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Khoa.resx">
-      <DependentUpon>Khoa.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuADMIN.resx">
+      <DependentUpon>MenuADMIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopHocPhanForm.resx">
+      <DependentUpon>LopHocPhanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,6 +212,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TaiKhoanNguoiDung.resx">
+      <DependentUpon>TaiKhoanNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KetQuaHocPhan.resx">
+      <DependentUpon>KetQuaHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThamGiaHocPhanForm.resx">
+      <DependentUpon>ThamGiaHocPhanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="ModelQLSVH.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelQLSVH.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelQLSVH.edmx.diagram">
+      <DependentUpon>ModelQLSVH.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,45 +238,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="qlsinhvienhunreDataSet.xsc">
-      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="qlsinhvienhunreDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>qlsinhvienhunreDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="qlsinhvienhunreDataSet.xss">
-      <DependentUpon>qlsinhvienhunreDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="qlsinhvienhunreDataSet1.xsc">
-      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="qlsinhvienhunreDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>qlsinhvienhunreDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="qlsinhvienhunreDataSet1.xss">
-      <DependentUpon>qlsinhvienhunreDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="qlsinhvienhunreDataSet2.xsc">
-      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="qlsinhvienhunreDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>qlsinhvienhunreDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="qlsinhvienhunreDataSet2.xss">
-      <DependentUpon>qlsinhvienhunreDataSet2.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="master - qlsinhvienhunre - dbo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelQLSVH.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelQLSVH.edmx</DependentUpon>
+      <LastGenOutput>ModelQLSVH.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelQLSVH.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelQLSVH.edmx</DependentUpon>
+      <LastGenOutput>ModelQLSVH.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

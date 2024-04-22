@@ -1,4 +1,5 @@
 ﻿using QLSinhVienHunre;
+using quanlisinhvienHUNRE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace QLSinhVienHunre
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SinhVien());
+            Application.Run(new SinhVienForm());
         }
     }
 }
